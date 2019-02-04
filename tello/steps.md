@@ -1,4 +1,4 @@
-## Steps For Tutorial:
+## Tutorial steps:
 
 	Today we'll program a Tello Drone from a computer. 
 
