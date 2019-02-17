@@ -1,100 +1,152 @@
-
+import pandas as pd
 import requests
 import json
-import pandas as pd
+
+import plotly.graph_objs as go
+from plotly.offline import plot
 
 from pyti.smoothed_moving_average import smoothed_moving_average as sma
 
-import plotly
-import plotly.plotly as py
-import plotly.graph_objs as go
 
 class TradingModel:
-
 	def __init__(self, symbol):
 		self.symbol = symbol
-		self.df = self.getData('1h')
+		self.df = self.getData()
 
-	def getData(self, interval='1h'):
-		
-		# define url
+	def getData(self):
+
+		# define URL
 		base = 'https://api.binance.com'
 		endpoint = '/api/v1/klines'
-		params = '?&symbol='+self.symbol+'&interval='+interval
+		params = '?&symbol='+self.symbol+'&interval=1h'
 
 		url = base + endpoint + params
 
-		# get actual data
+		# download data
 		data = requests.get(url)
 		dictionary = json.loads(data.text)
 
-		# put data in dataframe and cleanup
+		# put in dataframe and clean-up
 		df = pd.DataFrame.from_dict(dictionary)
-		df = df.drop(range(6, 12), axis = 1) # drops columns 6 tp 12
+		df = df.drop(range(6, 12), axis=1)
 
 		# rename columns
-		cols = ['time_stamp', 'open', 'high', 'low', 'close', 'volume']
-		df.columns = cols
+		col_names = ['time', 'open', 'high', 'low', 'close', 'volume']
+		df.columns = col_names
 
-		# transform values from string to floats
-		for col in cols:
+		# transform values from strings to floats
+		for col in col_names:
 			df[col] = df[col].astype(float)
 
-		# technical indicators (moving averages)
-		df['fast_sma'] = sma(df['close'].tolist(), 7)
-		df['slow_sma'] = sma(df['close'].tolist(), 25)
+		# add the moving averages
+		df['fast_sma'] = sma(df['close'].tolist(), 10)
+		df['slow_sma'] = sma(df['close'].tolist(), 30)
 
 		return df
 
-
-	def plotData(self):
+	def strategy(self):	
+		
+		'''If Price is 3% below Slow Moving Average, then Buy
+		Put selling order for 2% above buying price'''
 
 		df = self.df
 
+		buy_signals = []
+
+		for i in range(1, len(df['close'])):
+			if df['slow_sma'][i] > df['low'][i] and (df['slow_sma'][i] - df['low'][i]) > 0.03 * df['low'][i]:
+				buy_signals.append([df['time'][i], df['low'][i]])
+
+		self.plotData(buy_signals = buy_signals)
+
+	def plotData(self, buy_signals = False):
+		df = self.df
+
+		# plot candlestick chart
 		candle = go.Candlestick(
-			x = df['time_stamp'],
+			x = df['time'],
 			open = df['open'],
+			close = df['close'],
 			high = df['high'],
 			low = df['low'],
-			close = df['close'],
 			name = "Candlesticks")
 
 		# plot MAs
 		fsma = go.Scatter(
-			x = df['time_stamp'],
+			x = df['time'],
 			y = df['fast_sma'],
-			name = 'Fast SMA',
-			line = dict(
-				color = ('rgba(102, 207, 255, 50)'),
-				width = 2))
+			name = "Fast SMA",
+			line = dict(color = ('rgba(102, 207, 255, 50)')))
 
 		ssma = go.Scatter(
-			x = df['time_stamp'],
+			x = df['time'],
 			y = df['slow_sma'],
-			name = 'Slow SMA',
-			line = dict(
-				color = ('rgba(255, 207, 102, 50)'),
-				width = 2))
+			name = "Slow SMA",
+			line = dict(color = ('rgba(255, 207, 102, 50)')))
 
-		data = [candle, fsma, ssma]
+		data = [candle, ssma, fsma]
 
-		# style the plot
+		if buy_signals:
+			buys = go.Scatter(
+					x = [item[0] for item in buy_signals],
+					y = [item[1] for item in buy_signals],
+					name = "Buy Signals",
+					mode = "markers",
+				)
+
+			sells = go.Scatter(
+					x = [item[0] for item in buy_signals],
+					y = [item[1]*1.02 for item in buy_signals],
+					name = "Sell Signals",
+					mode = "markers",
+				)
+
+			data = [candle, ssma, fsma, buys, sells]
+
+
+		# style and display
 		layout = go.Layout(title = self.symbol)
 		fig = go.Figure(data = data, layout = layout)
 
-		# display
-		py.plot(fig, filename=self.symbol+' candlestick & MAs')
-
+		plot(fig, filename=self.symbol)
 
 def Main():
-	symbols = ["BTCUSDT", "ETHUSDT", "ETHBTC"]
-
-	for symbol in symbols:
-		print("Checking out "+symbol)
-		model = TradingModel(symbol)
-		print(model.getData())
-		model.plotData()
+	symbol = "BTCUSDT"
+	model = TradingModel(symbol)
+	model.strategy()
 
 if __name__ == '__main__':
 	Main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
