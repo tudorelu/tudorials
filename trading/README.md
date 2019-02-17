@@ -1,5 +1,5 @@
 # Automatic trading signals using python
-This folder contains the source code for this [video](COMING SOON).
+This folder contains the source code for this [video](https://www.youtube.com/watch?v=LiqQsmU6qYg).
 
 ## Description
 In this programming video we're writing a python program that gets price data (of coins, but works wth stocks too), computes some technical indicators (moving average), plots it. TradingModel.py does all of this plus has a strategy that allows you to automatically buy the coin whenever the difference between the price and a moving average is more than 3% - which is also backtested.
