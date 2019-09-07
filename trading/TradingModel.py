@@ -15,7 +15,7 @@ class TradingModel:
 	def __init__(self, symbol):
 		self.symbol = symbol
 		self.exchange = Binance()
-		self.df = self.exchange.GetSymbolData(symbol, '1h')
+		self.df = self.exchange.GetSymbolData(symbol, '4h')
 		self.last_price = self.df['close'][len(self.df['close'])-1]
 		self.buy_signals = []
 
@@ -105,7 +105,7 @@ class TradingModel:
 		''' If price is 10% below the Slow MA, return True'''
 
 		df = self.df
-		buy_price = 0.99 * df['slow_sma'][i]
+		buy_price = 0.8 * df['slow_sma'][i]
 		if buy_price >= df['close'][i]:
 			self.buy_signals.append([df['time'][i], df['close'][i], df['close'][i] * 1.045])
 			return True
@@ -116,7 +116,7 @@ class TradingModel:
 		''' If price is 5% below the Lower Bollinger Band, return True'''
 
 		df = self.df
-		buy_price = 0.99 * df['low_boll'][i]
+		buy_price = 0.98 * df['low_boll'][i]
 		if buy_price >= df['close'][i]:
 			self.buy_signals.append([df['time'][i], df['close'][i], df['close'][i] * 1.045])
 			return True
@@ -140,9 +140,9 @@ def Main():
 		
 		plot = False
 		
-		if model.maStrategy(len(model.df['close'])-1):
-			print(" MA Strategy match on "+symbol)
-			plot = True
+		# if model.maStrategy(len(model.df['close'])-1):
+		# 	print(" MA Strategy match on "+symbol)
+		# 	plot = True
 
 		if model.bollStrategy(len(model.df['close'])-1):
 			print(" Boll Strategy match on "+symbol)
