@@ -125,19 +125,13 @@ class TradingModel:
 
 
 def Main():
-	# symbol = "ETHUSDT"
-	# model = TradingModel(symbol)
-	# model.strategy()
+
 	exchange = Binance()
-
 	symbols = exchange.GetTradingSymbols()
-
 	for symbol in symbols:
 
 		print(symbol)
-		
 		model = TradingModel(symbol)
-		
 		plot = False
 		
 		# if model.maStrategy(len(model.df['close'])-1):
@@ -153,26 +147,3 @@ def Main():
 
 if __name__ == '__main__':
 	Main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
