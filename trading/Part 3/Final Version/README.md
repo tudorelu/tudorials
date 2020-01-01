@@ -14,20 +14,5 @@ Create a [Binance Account](https://www.binance.com/?ref=10961872)
 
 #### Software 
 
-Same requirements as in the previous video
-
-Have [python 3](https://www.python.org/downloads/) and [pip](https://stackoverflow.com/a/6587528/4468246) installed. 
-
-Install [pyti](https://pypi.org/project/pyti/).
-``` pip install pyti ```
-
-Install [plotly](https://plot.ly/python/getting-started/).
-``` pip install plotly ```
-
-## Documentation
-[Binance API](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md)
-
-## Credits
-
-##### Music
+Same requirements as in the previous videos
 
