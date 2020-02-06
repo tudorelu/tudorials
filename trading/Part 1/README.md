@@ -28,12 +28,8 @@ Install [plotly](https://plot.ly/python/getting-started/).
 
 [pyplot](https://plot.ly/python/getting-started/)
 
-## Credits
+## Contact 
 
-##### Music
+Do you have a strategy that you want to implement in an algorithm?
+Send me an email: hello@tudorbarbulescu.com
 
-Intro & Outro: Kalimba - Ninja we Ninja
-
-Bob Marley - Sun is Shining
-
-Shlohmo - Ghosts, part 2

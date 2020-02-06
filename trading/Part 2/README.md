@@ -16,8 +16,9 @@ Note: We're not using some of the functions within the Binance interface in this
 
 ## Requirements
 
-Create a [Binance Account](https://www.binance.com/?ref=10961872)
+Create a [Binance Account](https://www.binance.com/?ref=10961872) (10% OFF for trading fees)
 
-#### Software 
+## Contact 
 
-Requirements are the same as in Part 1
+Do you have a strategy that you want to implement in an algorithm?
+Send me an email: hello@tudorbarbulescu.com
