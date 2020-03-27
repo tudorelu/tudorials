@@ -1,0 +1,84 @@
+file: Part 5/Start Here/Binance.py
+line: 122
+align: bottom
+---
+
+  def PlaceOrderFromDict(self, params, test:bool=False):
+		""" Places order from params dict """
+
+		params['recvWindow'] = 5000
+		params['timestamp'] = int(round(time.time()*1000)) + request_delay
+		
+		self.signRequest(params)
+		url = ''
+		if test: 
+			url = self.base + self.endpoints['testOrder']
+		else:
+			url = self.base + self.endpoints['order']
+		return self._post(url, params, self.headers)↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⇥ + request_delay ↓↓↓↓↓⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫Binance.floatToString(price)↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫self._post(url, params=params, headers=self.headers)↓↓↓↓↓↓↓↓↓↓↓⇥ + request_delay↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓⇥←←←←←←←←←←←←←←←←←iginalClientOr↓↓⇥ + request_delay↓↓↓↓↓↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫self._get(url, params=params, headers=self.headers)↓↓↓↓↓↓↓↓↓↓⇥ + request_delay↓↓↓↓↓↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫↑⇥⌫⌫⌫⌫⌫↓↓↓↓↓↓↓↓⇥⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫⌫self._get(url, params=params, headers=self.headers)↓
+  @classmethod↓→→→→→→→→→⌫⌫⌫⌫cls↓↓↓↓↓↓↓↓↓↓↓↓↓self.↓↓
+  @classmethod
+	def get10Factor(cls, num):
+		""" Returns the number of 0s before the first non-0 digit of a number 
+		(if |num| is < than 1) or negative the number of digits between the first 
+		integer digit and the last, (if |num| >= 1) 
+		
+		get10Factor(0.00000164763) = 6
+		get10Factor(1600623.3) = -6
+		"""
+		p = 0
+		for i in range(-20, 20):
+			if num == num % 10**i:
+				p = -(i - 1)
+				break
+		return p
+
+	@classmethod
+	def RoundToValidPrice(cls, symbol_data, desired_price, round_up:bool=False) -> Decimal:
+		""" Returns the minimum quantity of a symbol we can buy,
+		closest to desiredPrice """
+		
+		pr_filter = {}
+		
+		for fil in symbol_data["filters"]:
+			if fil["filterType"] == "PRICE_FILTER":
+				pr_filter = fil
+				break
+		
+		if not pr_filter.keys().__contains__("tickSize"):
+			raise Exception("Couldn't find tickSize or PRICE_FILTER in symbol_data.")
+			return
+
+		round_off_number = int(cls.get10Factor((float(pr_filter["tickSize"]))))
+
+		number = round(Decimal(desired_price), round_off_number)
+		if round_up:
+			number = number + Decimal(pr_filter["tickSize"])
+
+		return number
+
+	@classmethod
+	def RoundToValidQuantity(cls, symbol_data, desired_quantity, round_up:bool=False) -> Decimal:
+		""" Returns the minimum quantity of a symbol we can buy,
+		closest to desiredPrice """
+		
+		lot_filter = {}
+		
+		for fil in symbol_data["filters"]:
+			if fil["filterType"] == "LOT_SIZE":
+				lot_filter = fil
+				break
+		
+		if not lot_filter.keys().__contains__("stepSize"):
+			raise Exception("Couldn't find stepSize or PRICE_FILTER in symbol_data.")
+			return
+
+		round_off_number = int(cls.get10Factor((float(lot_filter["stepSize"]))))
+
+		number = round(Decimal(desired_quantity), round_off_number)
+		if round_up:
+			number = number + Decimal(lot_filter["stepSize"])
+
+		return number
+
+

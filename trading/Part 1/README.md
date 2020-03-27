@@ -1,4 +1,7 @@
-# Automatic trading signals using python (part 1)
+# Algo Trading in Python
+
+## Part 1: BUILDING BLOCKS
+###### Getting data from exchange, computing an indicator & writing an initial strategy
 This folder contains the source code for this [video](https://www.youtube.com/watch?v=LiqQsmU6qYg).
 
 ## Description

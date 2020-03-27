@@ -1,4 +1,6 @@
-# Algorithmic Trading: Creating Strategies & Placing Orders
+# Algo Trading in Python
+## Part 4: TRADE YOUR OWN STRATEGY
+###### Creating a custom strategy template & the ability to place orders.
 
 This folder contains the source code written in this [video](https://youtu.be/ks-7Lw_b3NI).
 
@@ -8,7 +10,7 @@ In order to provide you with a template to code your own strategies (and indicat
 
 I restructured the code a bit, separating computing the indicators from the TradingModel. I also inplemented the function that allows you to run the strategies live and we placed the first order - live from our bot, which we exited with a 3% profit in less than 2 hours!
 
-![succesful trade using the bot](Images/succesful-trade.png)
+![succesful trade using the bot](Images/successful-trade.png)
 
 ## Creating a Strategy Template
 

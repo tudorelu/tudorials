@@ -1,4 +1,6 @@
-# Automatic trading signals using python (part 2)
+# Algo Trading in Python
+## Part 2: EXCHANGE INTERFACE & FINDING SIGNALS
+###### Writing an interface allowing us to interact with Binance & checking all pairs for signals
 
 This folder contains the source code for this [video](https://youtu.be/NTcZGzWBwAQ).
 

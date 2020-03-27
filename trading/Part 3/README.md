@@ -1,4 +1,5 @@
-# Automatic trading of cryptocurrencies using python (part 3)
+# Algo Trading in Python
+## Part 3: BACKTESTING & EVALUATING STRATEGIES
 
 This folder contains the source code for this [video](https://youtu.be/g_AyNYz_zkA).
 
