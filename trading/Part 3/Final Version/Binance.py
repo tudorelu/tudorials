@@ -7,8 +7,8 @@ import pandas as pd
 import hashlib
 
 binance_keys = {
-	'api_key': "hPBPEYwqrCVm9LYAKWr9e7X7B2xJHafQBDKR1gacrkptfkk0qfff1Oge0H6XDaqf",
-	'secret_key': "oXCnoSxVLcjqRVu0cA4klZsD7qq8JGmXXMUBk8ZEHOTNQTFfYs9zs7EF9f8axVXV"
+	'api_key': "key",
+	'secret_key': "key"
 }
 
 class Binance:
