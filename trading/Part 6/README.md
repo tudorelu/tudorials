@@ -2,7 +2,7 @@
 ## Part 6: TRENDS
 ###### Identify Trends & Draw Trendlines
 
-This folder contains the source code for this [video](https://youtu.be/Cr7nQYl3iH8).
+This folder contains the source code for this [video](https://youtu.be/dmx_xyKoeQY).
 
 ## Description
 
